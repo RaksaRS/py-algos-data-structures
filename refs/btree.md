@@ -1,6 +1,6 @@
 # B-Trees
 
-**Just a friendly reminder**: the purpose of this document is to provide the details of my implementation. I don't think this document gives a well done explanation of a B-tree and its operations. Therefore, for those who aren't familiar with B-Trees, this document woudln't be of much help.
+**Just a friendly reminder**: the purpose of this document is to provide the details of my implementation. I don't think this document gives a well done explanation of a B-tree and its operations. Therefore, for those who aren't familiar with B-Trees, this document wouldn't be of much help.
 
 This implementation supports:
 
@@ -63,8 +63,7 @@ When encountering an underflowing node $N$, there are 3 scenarios:
 
 2. The node has no **adjacent** siblings that are populous.
    In this case, we also form a temporary node $T$ like case (1). Unlike case (1), however, after forming $T$, we remove the nodes $S$ and $N$ and remove key $k$ of the parent. Then, we assign $T$ as the new child of the parent. Specifically, if -- before the removal process -- the parent of $S$ and $N$ has the following structure: $$..., l_i, p_i, k, p_{i+1}, l_{i+2}, p_{i+2}, ... $$
-   then, after removal, the parent looks like this:
-   $$..., l*i, p_T, l*{i+2}, p\_{i+2}, ...$$
+   then, after removal, the parent looks like this: $$..., l_i,p_T, l_{i+2}, p_{i+2}, ... $$
    ($p_T$ points to node T).
 
    Since the parent lost a key, it may underflow. So, we recurse.
